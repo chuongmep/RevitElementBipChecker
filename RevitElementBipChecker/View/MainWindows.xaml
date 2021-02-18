@@ -29,18 +29,45 @@
                 Margin="5,5,5,5"
                 Command="{Binding PickElement}"
                 Content="Check Element" />
-           <GroupBox Header="Filter View" Height="80">
-               <Grid>
-                   <Grid.RowDefinitions>
-                       <RowDefinition/>
-                       <RowDefinition/>
-                   </Grid.RowDefinitions>
-                   <CheckBox VerticalAlignment="Center" Margin="5,0,0,5" IsChecked="{Binding IsInstance,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Content="Instance" HorizontalAlignment="Left"></CheckBox>
-                   <CheckBox VerticalAlignment="Center" Grid.Row="1" Margin="5,0,0,5" IsChecked="{Binding IsType,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Content="Type" HorizontalAlignment="Left"></CheckBox>
+            <TextBox
+                Margin="5,5,5,5"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Text="{Binding ElementId}" />
+            <TextBox
+                Margin="5,5,5,5"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Text="{Binding CategoryName}" />
+            <TextBox
+                Margin="5,5,5,5"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Text="{Binding Name}" />
+            <GroupBox Height="80" Header="Filter View">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <CheckBox
+                        Margin="5,0,0,5"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Content="Instance"
+                        IsChecked="{Binding IsInstance, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox
+                        Grid.Row="1"
+                        Margin="5,0,0,5"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Content="Type"
+                        IsChecked="{Binding IsType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </Grid>
-              
+
             </GroupBox>
-            <Button Click="AboutOnClick" Content="About"></Button>
+
+            <Button Click="AboutOnClick" Content="About" />
         </StackPanel>
         <ListView
             Name="lsBipChecker"

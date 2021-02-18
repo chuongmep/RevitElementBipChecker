@@ -37,6 +37,9 @@ namespace RevitElementBipChecker.Viewmodel
                 {
                     Reference pickObject = UIdoc.Selection.PickObject(ObjectType.Element);
                     Element = Doc.GetElement(pickObject);
+                    ElementId = Element.Id.ToString();
+                    Name = Element.Name;
+                    CategoryName = Element.Category.Name;
                     ElementType = Doc.GetElement(Element.GetTypeId());
                 }
 
@@ -70,9 +73,27 @@ namespace RevitElementBipChecker.Viewmodel
                             }
                         }
                     }
-                    //Don't use because include parameter type and instance
-                    //ObservableCollection<ParameterData> list = data.GroupBy(x => x.BuiltInParameter).Select(x => x.First()).ToObservableCollection();
-                    //data = list;
+
+                    if (IsInstance)
+                    {
+                        foreach (Parameter parameter in Element.Parameters)
+                        {
+                            var parameterData = new ParameterData(parameter, Doc);
+                            data.Add(parameterData);
+                        }
+                    }
+
+                    if (IsType)
+                    {
+                        foreach (Parameter parameter in ElementType.Parameters)
+                        {
+                            var parameterData = new ParameterData(parameter, Doc);
+                            data.Add(parameterData);
+                        }
+                    }
+
+                    ObservableCollection<ParameterData> list = data.GroupBy(x => x.Parameter.Id).Select(x => x.First()).ToObservableCollection();
+                    data = list;
                     //Sort
                     CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(data);
                     view.SortDescriptions.Add(new SortDescription("TypeOrInstance", ListSortDirection.Ascending));
@@ -104,6 +125,7 @@ namespace RevitElementBipChecker.Viewmodel
         }
 
         public Autodesk.Revit.DB.Element Element { get; set; }
+
         public Autodesk.Revit.DB.Element ElementType { get; set; }
 
         private bool isInstance = true;
@@ -129,6 +151,25 @@ namespace RevitElementBipChecker.Viewmodel
                 OnPropertyChanged(ref isType, value);
                 FreshParameter();
             }
+        }
+
+        private string elementId;
+        public string ElementId
+        {
+            get => elementId;
+            set => OnPropertyChanged(ref elementId, value);
+        }
+        private string name;
+        public string Name
+        {
+            get => name;
+            set => OnPropertyChanged(ref name, value);
+        }
+        private string categoryName;
+        public string CategoryName
+        {
+            get => categoryName;
+            set => OnPropertyChanged(ref categoryName, value);
         }
 
         private bool filterSearchText(object item)
@@ -219,7 +260,7 @@ namespace RevitElementBipChecker.Viewmodel
 
         #endregion
 
-        
+
 
         void ExportData()
         {
