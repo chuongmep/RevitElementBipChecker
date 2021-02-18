@@ -50,6 +50,7 @@ namespace RevitElementBipChecker.Viewmodel
                         {
                             continue;
                         }
+
                         Parameter pradata = Element.get_Parameter(bip);
                         if (pradata != null && IsInstance)
                         {
@@ -62,14 +63,23 @@ namespace RevitElementBipChecker.Viewmodel
                         Parameter pradataType = ElementType.get_Parameter(bip);
                         if (pradataType != null && IsType)
                         {
-                            ParameterData parameterData = new ParameterData(pradataType, Doc,false);
+                            ParameterData parameterData = new ParameterData(pradataType, Doc, false);
                             if (!data.Contains(parameterData))
                             {
                                 data.Add(parameterData);
                             }
                         }
                     }
+                    foreach (Parameter parameter in Element.Parameters)
+                    {
+                        var valueString = (StorageType.ElementId == parameter.StorageType) ? PraUtils.GetParameterValue2(parameter, Doc) : parameter.AsValueString();
+                        var parameterData = new ParameterData(parameter,Doc,true);
 
+                        if (!data.Contains(parameterData))
+                        {
+                            data.Add(parameterData);
+                        }
+                    }
                     //Don't use because include parameter type and instance
                     //ObservableCollection<ParameterData> list = data.GroupBy(x => x.BuiltInParameter).Select(x => x.First()).ToObservableCollection();
                     //data = list;
@@ -77,7 +87,7 @@ namespace RevitElementBipChecker.Viewmodel
                     CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(data);
                     view.SortDescriptions.Add(new SortDescription("TypeOrInstance", ListSortDirection.Ascending));
                     view.SortDescriptions.Add(new SortDescription("ParameterName", ListSortDirection.Ascending));
-                   
+
 
                 }
                 return data;
@@ -121,7 +131,7 @@ namespace RevitElementBipChecker.Viewmodel
         }
 
         private bool isType;
-        public  bool IsType
+        public bool IsType
         {
             get => isType;
             set
@@ -172,7 +182,7 @@ namespace RevitElementBipChecker.Viewmodel
         {
             this.UIdoc = uidoc;
             this.Doc = uidoc.Document;
-            GetListData();
+            GetSelectedEle();
         }
 
         #region CopyAction
@@ -220,9 +230,13 @@ namespace RevitElementBipChecker.Viewmodel
 
         #endregion
 
-        void GetListData()
+        void GetSelectedEle()
         {
-
+            ICollection<ElementId> elementIds = UIdoc.Selection.GetElementIds();
+            if (elementIds.Count == 1)
+            {
+                Element = Doc.GetElement(elementIds.First());
+            }
         }
 
         void ExportData()

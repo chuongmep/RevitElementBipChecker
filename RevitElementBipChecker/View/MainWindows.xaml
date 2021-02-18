@@ -40,6 +40,7 @@
                 </Grid>
               
             </GroupBox>
+            <Button Click="AboutOnClick" Content="About"></Button>
         </StackPanel>
         <ListView
             Name="lsBipChecker"
@@ -122,7 +123,7 @@
             <TextBox.Resources>
                 <VisualBrush
                     x:Key="hinttext"
-                    AlignmentX="Center"
+                    AlignmentX="Left"
                     Stretch="None"
                     TileMode="None">
                     <VisualBrush.Visual>
@@ -131,7 +132,7 @@
                             VerticalAlignment="Center"
                             FontStyle="Normal"
                             Foreground="#959595"
-                            Text="Search Filter Parameter Information" />
+                            Text="Search Filter By Parameter Name" />
                     </VisualBrush.Visual>
                 </VisualBrush>
             </TextBox.Resources>

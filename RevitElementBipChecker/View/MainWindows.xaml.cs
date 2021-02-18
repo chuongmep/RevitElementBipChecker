@@ -17,5 +17,9 @@ namespace RevitElementBipChecker.View
             InitializeComponent();
         }
 
+        private void AboutOnClick(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://chuongmep.com/");
+        }
     }
 }
