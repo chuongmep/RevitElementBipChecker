@@ -25,7 +25,21 @@
                 Margin="5,5,5,5"
                 Command="{Binding OpenExcel}"
                 Content="Open In Excel" />
-            <Button Margin="5,5,5,5" Content="Check Element" />
+            <Button
+                Margin="5,5,5,5"
+                Command="{Binding PickElement}"
+                Content="Check Element" />
+           <GroupBox Header="Filter View" Height="80">
+               <Grid>
+                   <Grid.RowDefinitions>
+                       <RowDefinition/>
+                       <RowDefinition/>
+                   </Grid.RowDefinitions>
+                   <CheckBox VerticalAlignment="Center" Margin="5,0,0,5" IsChecked="{Binding IsInstance,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Content="Instance" HorizontalAlignment="Left"></CheckBox>
+                   <CheckBox VerticalAlignment="Center" Grid.Row="1" Margin="5,0,0,5" IsChecked="{Binding IsType,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Content="Type" HorizontalAlignment="Left"></CheckBox>
+                </Grid>
+              
+            </GroupBox>
         </StackPanel>
         <ListView
             Name="lsBipChecker"
@@ -39,6 +53,10 @@
                         Width="100"
                         DisplayMemberBinding="{Binding ParameterName}"
                         Header="ParameterName" />
+                    <GridViewColumn
+                        Width="100"
+                        DisplayMemberBinding="{Binding TypeOrInstance}"
+                        Header="Is Instance" />
                     <GridViewColumn
                         Width="150"
                         DisplayMemberBinding="{Binding BuiltInParameter}"

@@ -16,7 +16,7 @@ namespace RevitElementBipChecker.Command
             Document doc = uidoc.Document;
             BipCheckerViewmodel vm = new BipCheckerViewmodel(uidoc);
             MainWindows frMainWindows = new MainWindows(vm);
-            frMainWindows.ShowDialog();
+            frMainWindows.Show();
             return Result.Succeeded;
         }
     }

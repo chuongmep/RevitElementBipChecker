@@ -58,6 +58,7 @@
     <Compile Include="Model\NotifyPropertyChanged.cs" />
     <Compile Include="Model\PraUtils.cs" />
     <Compile Include="Model\RelayCommand.cs" />
+    <Compile Include="Model\RevitEvent.cs" />
     <Compile Include="Viewmodel\BipCheckerViewmodel.cs" />
     <Compile Include="Viewmodel\ParameterData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

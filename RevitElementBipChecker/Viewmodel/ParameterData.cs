@@ -5,7 +5,7 @@ namespace RevitElementBipChecker.Viewmodel
 {
    public class ParameterData
     {
-        public ParameterData(Parameter parameter,Document doc)
+        public ParameterData(Parameter parameter,Document doc,bool isinstance=true)
         {
             this.Parameter = parameter;
             this.BuiltInParameter = (parameter.Definition as InternalDefinition).BuiltInParameter.ToString();
@@ -19,6 +19,7 @@ namespace RevitElementBipChecker.Viewmodel
                 ? parameter.GetParameterValue2(doc) : parameter.AsValueString();
             this.Shared = parameter.Shared();
             this.GUID = parameter.Guid();
+            this.TypeOrInstance = isinstance?"Instance":"Type";
         }
 
         public Autodesk.Revit.DB.Parameter Parameter { get; set; }
@@ -39,5 +40,6 @@ namespace RevitElementBipChecker.Viewmodel
         public string Shared { get; set; }
         public string GUID { get; set; }
 
+        public string TypeOrInstance { get; set; }
     }
 }
