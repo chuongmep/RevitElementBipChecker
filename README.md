@@ -6,6 +6,7 @@ Solution Check Full Parameter :
 - Export Parameter to Excel
 - Interactive Live With Revit Project 
 - Select Quickly Change Snoop Element
+- Update Next: Support Snoop LinkedElement
 Demo:
 ![](doc/_Image_6eb96b13-75c4-49bd-8232-b2e8cdfe798b.png)
 
