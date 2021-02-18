@@ -52,6 +52,12 @@ namespace RevitElementBipChecker.Model
             File.WriteAllLines(path, lines);
         }
 
+        /// <summary>
+        /// convert Data Object to data table
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public static DataTable ToDataTable<T>(this IList<T> data)
         {
             PropertyDescriptorCollection props =
@@ -74,6 +80,12 @@ namespace RevitElementBipChecker.Model
             return table;        
         }
        
+        /// <summary>
+        /// convert optimize data object to data table
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public static DataTable ToDataTable2<T>(this IList<T> data)
         {
             PropertyDescriptorCollection properties = 

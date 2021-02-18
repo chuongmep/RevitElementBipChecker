@@ -70,16 +70,6 @@ namespace RevitElementBipChecker.Viewmodel
                             }
                         }
                     }
-                    foreach (Parameter parameter in Element.Parameters)
-                    {
-                        var valueString = (StorageType.ElementId == parameter.StorageType) ? PraUtils.GetParameterValue2(parameter, Doc) : parameter.AsValueString();
-                        var parameterData = new ParameterData(parameter,Doc,true);
-
-                        if (!data.Contains(parameterData))
-                        {
-                            data.Add(parameterData);
-                        }
-                    }
                     //Don't use because include parameter type and instance
                     //ObservableCollection<ParameterData> list = data.GroupBy(x => x.BuiltInParameter).Select(x => x.First()).ToObservableCollection();
                     //data = list;
@@ -182,7 +172,6 @@ namespace RevitElementBipChecker.Viewmodel
         {
             this.UIdoc = uidoc;
             this.Doc = uidoc.Document;
-            GetSelectedEle();
         }
 
         #region CopyAction
@@ -230,14 +219,7 @@ namespace RevitElementBipChecker.Viewmodel
 
         #endregion
 
-        void GetSelectedEle()
-        {
-            ICollection<ElementId> elementIds = UIdoc.Selection.GetElementIds();
-            if (elementIds.Count == 1)
-            {
-                Element = Doc.GetElement(elementIds.First());
-            }
-        }
+        
 
         void ExportData()
         {
