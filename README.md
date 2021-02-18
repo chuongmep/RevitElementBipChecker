@@ -15,7 +15,7 @@ Select First To Snoop :
 
 Live Snoop
 
-![](doc/demo.gif)
+![](doc/Demo.gif)
 
 Copy Info By Rigth Click
 
