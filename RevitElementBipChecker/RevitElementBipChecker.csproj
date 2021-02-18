@@ -73,5 +73,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="App\BipChecker.addin" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
