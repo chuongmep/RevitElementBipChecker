@@ -10,6 +10,7 @@ namespace RevitElementBipChecker.Viewmodel
             this.Parameter = parameter;
             this.BuiltInParameter = (parameter.Definition as InternalDefinition).BuiltInParameter.ToString();
             this.ParameterName = parameter.Definition.Name;
+            this.Id = parameter.Id.ToString();
             this.ParameterGroup = parameter.Definition.ParameterGroup.ToString();
             this.GroupName = LabelUtils.GetLabelFor(parameter.Definition.ParameterGroup);
             this.Type = parameter.GetParameterType();
@@ -23,6 +24,7 @@ namespace RevitElementBipChecker.Viewmodel
         }
 
         public Autodesk.Revit.DB.Parameter Parameter { get; set; }
+        public string Id { get; set; }
 
         public string BuiltInParameter { get; set; }
         public string ParameterName { get; set; }

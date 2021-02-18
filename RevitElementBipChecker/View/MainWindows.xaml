@@ -55,6 +55,10 @@
                         Header="ParameterName" />
                     <GridViewColumn
                         Width="100"
+                        DisplayMemberBinding="{Binding Id}"
+                        Header="Parameter Id" />
+                    <GridViewColumn
+                        Width="100"
                         DisplayMemberBinding="{Binding TypeOrInstance}"
                         Header="Is Instance" />
                     <GridViewColumn
