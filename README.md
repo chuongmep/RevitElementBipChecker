@@ -17,6 +17,6 @@ Live Snoop
 
 ![](doc/Demo.gif)
 
-Copy Info By Rigth Click
+Copy Info By Right Click
 
 ![](doc/_Image_d275515e-7661-4d53-aed8-6624fec689d9.png)
