@@ -29,6 +29,9 @@
                 Margin="5,5,5,5"
                 Command="{Binding PickElement}"
                 Content="Check Element" />
+            <Button Margin="5,5,5,5"
+                    Command="{Binding PickLinkElement}"
+                    Content="Check LinkElement"/>
             <TextBox
                 Margin="5,5,5,5"
                 HorizontalContentAlignment="Center"
@@ -44,6 +47,9 @@
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Text="{Binding Name}" />
+            <GroupBox Header="State Check">
+                <Label Foreground="Red" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding State}"></Label>
+            </GroupBox>
             <GroupBox Height="80" Header="Filter View">
                 <Grid>
                     <Grid.RowDefinitions>

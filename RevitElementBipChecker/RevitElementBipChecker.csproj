@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command\Command.cs" />
+    <Compile Include="Model\DialogUtils.cs" />
     <Compile Include="Model\ExcelUtils.cs" />
     <Compile Include="Model\IEnumerableUtils.cs" />
     <Compile Include="Model\NotifyPropertyChanged.cs" />
