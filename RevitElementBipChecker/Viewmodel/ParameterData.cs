@@ -24,24 +24,19 @@ namespace RevitElementBipChecker.Viewmodel
         }
 
         public Autodesk.Revit.DB.Parameter Parameter { get; set; }
-        public string Id { get; set; }
-
-        public string BuiltInParameter { get; set; }
         public string ParameterName { get; set; }
-
+        public string Id { get; set; }
+        public string TypeOrInstance { get; set; }
+        public string BuiltInParameter { get; set; }
         public string Type { get; set; }
-
         public string ReadWrite { get; set; }
-
-        public string StringValue { get; set; }
-
         public string Value { get; set; }
+        public string StringValue { get; set; }
         public string ParameterGroup { get; set; }
-
         public string GroupName { get; set; }
         public string Shared { get; set; }
         public string GUID { get; set; }
 
-        public string TypeOrInstance { get; set; }
+        
     }
 }

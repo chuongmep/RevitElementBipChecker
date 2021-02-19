@@ -24,31 +24,40 @@
             <Button
                 Margin="5,5,5,5"
                 Command="{Binding OpenExcel}"
-                Content="Open In Excel" />
+                Content="Open In Excel"
+                ToolTip="Save Data To Document" />
             <Button
                 Margin="5,5,5,5"
                 Command="{Binding PickElement}"
                 Content="Check Element" />
-            <Button Margin="5,5,5,5"
-                    Command="{Binding PickLinkElement}"
-                    Content="Check LinkElement"/>
+            <Button
+                Margin="5,5,5,5"
+                Command="{Binding PickLinkElement}"
+                Content="Check LinkElement" />
             <TextBox
                 Margin="5,5,5,5"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Text="{Binding ElementId}" />
+                Text="{Binding ElementId}"
+                ToolTip="Element Id" />
             <TextBox
                 Margin="5,5,5,5"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Text="{Binding CategoryName}" />
+                Text="{Binding CategoryName}"
+                ToolTip="Category Of Element" />
             <TextBox
                 Margin="5,5,5,5"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Text="{Binding Name}" />
+                Text="{Binding Name}"
+                ToolTip="Element Name" />
             <GroupBox Header="State Check">
-                <Label Foreground="Red" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding State}"></Label>
+                <Label
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Content="{Binding State}"
+                    Foreground="Red" />
             </GroupBox>
             <GroupBox Height="80" Header="Filter View">
                 <Grid>
@@ -135,8 +144,8 @@
             </ListView.View>
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Command="{Binding CopyBuiltInParameter}" Header="Copy BuiltInParameter" />
                     <MenuItem Command="{Binding CopyParameterName}" Header="Copy ParameterName" />
+                    <MenuItem Command="{Binding CopyBuiltInParameter}" Header="Copy BuiltInParameter" />
                     <MenuItem Command="{Binding CopyType}" Header="Copy Type" />
                     <MenuItem Command="{Binding CopyValue}" Header="Copy Value" />
                     <MenuItem Command="{Binding CopyParameterGroup}" Header="Copy ParameterGroup" />

@@ -53,32 +53,41 @@ namespace RevitElementBipChecker.Viewmodel
                 {
                     data = new ObservableCollection<ParameterData>();
                     var bipNames = Enum.GetNames(typeof(BuiltInParameter));
-                    foreach (string bipname in bipNames)
-                    {
-                        if (!Enum.TryParse(bipname, out BuiltInParameter bip))
-                        {
-                            continue;
-                        }
 
-                        Parameter pradata = Element.get_Parameter(bip);
-                        if (pradata != null && IsInstance)
-                        {
-                            ParameterData parameterData = new ParameterData(pradata, Element.Document);
-                            if (!data.Contains(parameterData))
-                            {
-                                data.Add(parameterData);
-                            }
-                        }
-                        Parameter pradataType = ElementType.get_Parameter(bip);
-                        if (pradataType != null && IsType)
-                        {
-                            ParameterData parameterData = new ParameterData(pradataType, Element.Document, false);
-                            if (!data.Contains(parameterData))
-                            {
-                                data.Add(parameterData);
-                            }
-                        }
-                    }
+                    #region Remove Fix
+
+                    //foreach (string bipname in bipNames)
+                    //{
+                    //    if (Element.Category.Name == "Parts")
+                    //    {
+                    //        break;
+                    //    }
+                    //    if (!Enum.TryParse(bipname, out BuiltInParameter bip))
+                    //    {
+                    //        continue;
+                    //    }
+                    //    MessageBox.Show(bip.ToString());
+                    //    Parameter pradata = Element.get_Parameter(bip);
+                    //    if (pradata != null && IsInstance)
+                    //    {
+                    //        ParameterData parameterData = new ParameterData(pradata, Element.Document);
+                    //        if (!data.Contains(parameterData))
+                    //        {
+                    //            data.Add(parameterData);
+                    //        }
+                    //    }
+                    //    Parameter pradataType = ElementType.get_Parameter(bip);
+                    //    if (pradataType != null && IsType)
+                    //    {
+                    //        ParameterData parameterData = new ParameterData(pradataType, Element.Document, false);
+                    //        if (!data.Contains(parameterData))
+                    //        {
+                    //            data.Add(parameterData);
+                    //        }
+                    //    }
+                    //}
+
+                    #endregion
 
                     if (IsInstance)
                     {
@@ -93,7 +102,7 @@ namespace RevitElementBipChecker.Viewmodel
                     {
                         foreach (Parameter parameter in ElementType.Parameters)
                         {
-                            var parameterData = new ParameterData(parameter, Element.Document);
+                            var parameterData = new ParameterData(parameter, Element.Document,false);
                             data.Add(parameterData);
                         }
                     }
@@ -214,8 +223,6 @@ namespace RevitElementBipChecker.Viewmodel
 
         public ICommand PickLinkElement { get => new RelayCommand(PickLink_Element_Event); }
 
-        
-
         public ICommand OpenExcel
         {
             get => new RelayCommand(ExportData);
@@ -233,12 +240,13 @@ namespace RevitElementBipChecker.Viewmodel
 
         void PickFirst()
         {
-            bool IsInstance = DialogUtils.QuestionMsg("Select Option Snoop Element");
-            if (!IsInstance)
+            bool isintance = DialogUtils.QuestionMsg("Select Option Snoop Element");
+            if (!isintance)
             {
                 PickLink_Element();
             }
         }
+
         #region CopyAction
 
         ParameterData GetSelectedItem()

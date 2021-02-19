@@ -49,7 +49,7 @@ namespace RevitElementBipChecker.Model
 
             lines.AddRange(valueLines);
 
-            File.WriteAllLines(path, lines);
+            File.WriteAllLines(path, lines,Encoding.UTF8);
         }
 
         /// <summary>
@@ -101,6 +101,18 @@ namespace RevitElementBipChecker.Model
                 table.Rows.Add(row);
             }
             return table;
+        }
+
+        public static string DecodeFromUtf8(this string utf8String)
+        {
+            // copy the string as UTF-8 bytes.
+            byte[] utf8Bytes = new byte[utf8String.Length];
+            for (int i=0;i<utf8String.Length;++i) {
+                //Debug.Assert( 0 <= utf8String[i] && utf8String[i] <= 255, "the char must be in byte's range");
+                utf8Bytes[i] = (byte)utf8String[i];
+            }
+
+            return Encoding.UTF8.GetString(utf8Bytes,0,utf8Bytes.Length);
         }
     }
 }
