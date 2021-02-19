@@ -27,6 +27,7 @@ namespace RevitElementBipChecker.Viewmodel
         public Document Doc;
         public MainWindows frmmain;
         private RevitEvent revitEvent = new RevitEvent();
+        public const string DefaultValue = "<null>";
         private ObservableCollection<ParameterData> data;
 
         public ObservableCollection<ParameterData> Data
@@ -177,19 +178,22 @@ namespace RevitElementBipChecker.Viewmodel
             get => state;
             set => OnPropertyChanged(ref state, value);
         }
-        private string elementId;
+
+        private string elementId = DefaultValue;
         public string ElementId
         {
             get => elementId;
             set => OnPropertyChanged(ref elementId, value);
         }
-        private string name;
+
+        private string name = DefaultValue;
         public string Name
         {
             get => name;
             set => OnPropertyChanged(ref name, value);
         }
-        private string categoryName;
+
+        private string categoryName = DefaultValue;
         public string CategoryName
         {
             get => categoryName;
