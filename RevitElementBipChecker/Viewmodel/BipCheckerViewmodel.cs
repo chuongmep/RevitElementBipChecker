@@ -39,23 +39,26 @@ namespace RevitElementBipChecker.Viewmodel
                     {
                         Reference pickObject = UIdoc.Selection.PickObject(ObjectType.Element);
                         Element = Doc.GetElement(pickObject);
+                        Doc = Element.Document;
+                        ElementId = Element.Id.ToString();
+                        Name = Element.Name;
+                        CategoryName = Element.Category.Name;
+                        if (Element.CanHaveTypeAssigned())
+                        {
+                            ElementType = Doc.GetElement(Element.GetTypeId());
+                        }
+                        this.State = "Element Current";
                     }
                     catch (Autodesk.Revit.Exceptions.OperationCanceledException ) { }
-                    Doc = Element.Document;
-                    ElementId = Element.Id.ToString();
-                    Name = Element.Name;
-                    CategoryName = Element.Category.Name;
-                    ElementType = Doc.GetElement(Element.GetTypeId());
-                    this.State = "Element Current";
+                    catch(Exception e) { }
+                    
                 }
-
                 if (data == null)
                 {
                     data = new ObservableCollection<ParameterData>();
-                    var bipNames = Enum.GetNames(typeof(BuiltInParameter));
-
+                    
                     #region Remove Fix
-
+                    //var bipNames = Enum.GetNames(typeof(BuiltInParameter));
                     //foreach (string bipname in bipNames)
                     //{
                     //    if (Element.Category.Name == "Parts")
@@ -93,12 +96,13 @@ namespace RevitElementBipChecker.Viewmodel
                     {
                         foreach (Parameter parameter in Element.Parameters)
                         {
+                            
                             var parameterData = new ParameterData(parameter, Element.Document);
                             data.Add(parameterData);
                         }
                     }
 
-                    if (IsType)
+                    if (IsType && ElementType!=null)
                     {
                         foreach (Parameter parameter in ElementType.Parameters)
                         {
