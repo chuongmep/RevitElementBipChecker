@@ -245,15 +245,33 @@ namespace RevitElementBipChecker.Viewmodel
         {
             this.UIdoc = uidoc;
             this.Doc = uidoc.Document;
+            Selected();
             PickFirst();
         }
 
+        void Selected()
+        {
+            try
+            {
+                Element = UIdoc.GetSelection().First();
+                if (Element!=null)
+                {
+                    Name = Element.Name;
+                    CategoryName = Element.Category.Name;
+                    ElementId = Element.Id.ToString();
+                }
+            }
+            catch (System.InvalidOperationException ) { }
+        }
         void PickFirst()
         {
-            bool isintance = DialogUtils.QuestionMsg("Select Option Snoop Element");
-            if (!isintance)
+            if (Element==null)
             {
-                PickLink_Element();
+                bool isintance = DialogUtils.QuestionMsg("Select Option Snoop Element");
+                if (!isintance)
+                {
+                    PickLink_Element();
+                }
             }
         }
 
