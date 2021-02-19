@@ -14,7 +14,7 @@ namespace RevitElementBipChecker.Model
         /// <summary>
         /// Save Report To File Csv
         /// </summary>
-        /// <param name="dt">datatable</param>
+        /// <param name="dt">data table</param>
         /// <param name="path">output path of file</param>
         /// <param name="filename">filename want save</param>
         public static void OpenExcel(this DataTable dt, out string path, string filename = "Report.csv")
@@ -103,6 +103,12 @@ namespace RevitElementBipChecker.Model
             return table;
         }
 
+
+        /// <summary>
+        /// Decode Unicode 8
+        /// </summary>
+        /// <param name="utf8String"></param>
+        /// <returns></returns>
         public static string DecodeFromUtf8(this string utf8String)
         {
             // copy the string as UTF-8 bytes.

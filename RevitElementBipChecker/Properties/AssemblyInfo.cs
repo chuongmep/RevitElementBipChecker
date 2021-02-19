@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("RevitElementBipChecker")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("https://chuongmep.com/")]
 [assembly: AssemblyProduct("RevitElementBipChecker")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
+[assembly: AssemblyCopyright("Copyright ©Chuongmep  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ba7f5127-5343-4ef3-8a81-0497391aee46")]
+[assembly: Guid("325F1D8A-E9A2-4CA4-93C3-D977B3DDD81B")]
 
 // Version information for an assembly consists of the following four values:
 //

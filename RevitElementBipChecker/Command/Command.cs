@@ -3,6 +3,7 @@ using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
+using RevitElementBipChecker.Model;
 using RevitElementBipChecker.View;
 using RevitElementBipChecker.Viewmodel;
 
@@ -17,14 +18,9 @@ namespace RevitElementBipChecker.Command
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document doc = uidoc.Document;
 
-            //Reference r = uidoc.Selection.PickObject(ObjectType.Element);
-            //Element element = doc.GetElement(r);
-            //string asString = element.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).AsString();
-            //MessageBox.Show(asString);
-
             BipCheckerViewmodel vm = new BipCheckerViewmodel(uidoc);
             MainWindows frMainWindows = new MainWindows(vm);
-            frMainWindows.Topmost = true;
+            frMainWindows.SetRevitAsWindowOwner();
             frMainWindows.Show();
             return Result.Succeeded;
         }

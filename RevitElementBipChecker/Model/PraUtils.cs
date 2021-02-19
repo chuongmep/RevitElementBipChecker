@@ -54,24 +54,44 @@ namespace RevitElementBipChecker.Model
             return dialog.Show() == TaskDialogResult.CommandLink1;
         }
 
+        /// <summary>
+        /// Return Real String Of Double
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static string RealString(double a)
         {
             return a.ToString("0.##");
         }
 
+        /// <summary>
+        /// Return type Of Parameter
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public static string GetParameterType(this Autodesk.Revit.DB.Parameter parameter)
         {
             ParameterType pt = parameter.Definition.ParameterType; // returns 'Invalid' for 'ElementId'
-            string s = ParameterType.Invalid == pt ? "" : "/" + pt.ToString();
-            return parameter.StorageType.ToString() + s;
-            return string.Empty;
+            string s = ParameterType.Invalid == pt ? "" : "/" + pt;
+            return parameter.StorageType + s;
         }
 
+        /// <summary>
+        /// Check Parameter Is Read Or Write
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public static string IsReadWrite(this Parameter parameter)
         {
             return parameter.IsReadOnly?"read-only" : "read-write";
         }
 
+
+        /// <summary>
+        /// Return value Of parameter all case unit
+        /// </summary>
+        /// <param name="_parameter"></param>
+        /// <returns></returns>
         public static string GetValue(this Autodesk.Revit.DB.Parameter _parameter)
         {
             string value;
@@ -167,9 +187,8 @@ namespace RevitElementBipChecker.Model
         public static string ElementDescription(Element e)
         {
             var description = (null == e.Category) ? e.GetType().Name : e.Category.Name;
-            var familyInstance = e as FamilyInstance;
 
-            if (null != familyInstance)
+            if (e is FamilyInstance familyInstance)
             {
                 description += " '" + familyInstance.Symbol.Family.Name + "'";
             }
@@ -232,11 +251,21 @@ namespace RevitElementBipChecker.Model
             return parameterString;
         }
 
+        /// <summary>
+        /// Return Result of parameter share
+        /// </summary>
+        /// <param name="parameter">parameter</param>
+        /// <returns></returns>
         public static string Shared(this Parameter parameter)
         {
             return parameter.IsShared ? "Shared" : "Non-shared";
         }
 
+        /// <summary>
+        /// Return Guid Of Parameter Share
+        /// </summary>
+        /// <param name="parameter">parameter</param>
+        /// <returns></returns>
         public static string Guid(this Parameter parameter)
         {
             return parameter.IsShared ? parameter.GUID.ToString() : string.Empty;
