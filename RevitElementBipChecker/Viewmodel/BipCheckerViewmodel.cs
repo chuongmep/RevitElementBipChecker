@@ -51,8 +51,10 @@ namespace RevitElementBipChecker.Viewmodel
                         this.State = "Element Current";
                     }
                     catch (Autodesk.Revit.Exceptions.OperationCanceledException ) { }
-                    catch(Exception e) { }
-                    
+                    catch (Exception)
+                    {
+                        // ignored
+                    }
                 }
                 if (data == null)
                 {
