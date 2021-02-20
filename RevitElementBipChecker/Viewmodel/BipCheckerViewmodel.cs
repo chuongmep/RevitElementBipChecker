@@ -140,10 +140,7 @@ namespace RevitElementBipChecker.Viewmodel
                 }
                 return itemsView;
             }
-            set
-            {
-                OnPropertyChanged(ref itemsView, value);
-            }
+            set => OnPropertyChanged(ref itemsView, value);
         }
 
         public Autodesk.Revit.DB.Element Element { get; set; }
@@ -152,10 +149,7 @@ namespace RevitElementBipChecker.Viewmodel
         private bool isInstance = true;
         public bool IsInstance
         {
-            get
-            {
-                return isInstance;
-            }
+            get => isInstance;
             set
             {
                 OnPropertyChanged(ref isInstance, value);
