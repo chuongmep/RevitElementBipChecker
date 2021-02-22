@@ -250,6 +250,10 @@ namespace RevitElementBipChecker.Viewmodel
                 Element = UIdoc.GetSelection().First();
                 if (Element!=null)
                 {
+                    if (Element.CanHaveTypeAssigned())
+                    {
+                        ElementType = Doc.GetElement(Element.GetTypeId());
+                    }
                     Name = Element.Name;
                     CategoryName = Element.Category.Name;
                     ElementId = Element.Id.ToString();
