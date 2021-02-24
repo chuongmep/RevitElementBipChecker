@@ -50,7 +50,7 @@ namespace RevitElementBipChecker.Viewmodel
                         }
                         this.State = "Element Current";
                     }
-                    catch (Autodesk.Revit.Exceptions.OperationCanceledException ) { }
+                    catch (Autodesk.Revit.Exceptions.OperationCanceledException) { }
                     catch (Exception)
                     {
                         // ignored
@@ -59,7 +59,7 @@ namespace RevitElementBipChecker.Viewmodel
                 if (data == null)
                 {
                     data = new ObservableCollection<ParameterData>();
-                    
+
                     #region Remove Fix
                     //var bipNames = Enum.GetNames(typeof(BuiltInParameter));
                     //foreach (string bipname in bipNames)
@@ -99,17 +99,17 @@ namespace RevitElementBipChecker.Viewmodel
                     {
                         foreach (Parameter parameter in Element.Parameters)
                         {
-                            
+
                             var parameterData = new ParameterData(parameter, Element.Document);
                             data.Add(parameterData);
                         }
                     }
 
-                    if (IsType && ElementType!=null)
+                    if (IsType && ElementType != null)
                     {
                         foreach (Parameter parameter in ElementType.Parameters)
                         {
-                            var parameterData = new ParameterData(parameter, Element.Document,false);
+                            var parameterData = new ParameterData(parameter, Element.Document, false);
                             data.Add(parameterData);
                         }
                     }
@@ -231,6 +231,10 @@ namespace RevitElementBipChecker.Viewmodel
         {
             get => new RelayCommand(ExportData);
         }
+        public ICommand OpenJson
+        {
+            get => new RelayCommand(ExportJson);
+        }
         public ICommand PickElement
         {
             get => new RelayCommand(SelectElementEvent);
@@ -248,7 +252,7 @@ namespace RevitElementBipChecker.Viewmodel
             try
             {
                 Element = UIdoc.GetSelection().First();
-                if (Element!=null)
+                if (Element != null)
                 {
                     if (Element.CanHaveTypeAssigned())
                     {
@@ -259,11 +263,11 @@ namespace RevitElementBipChecker.Viewmodel
                     ElementId = Element.Id.ToString();
                 }
             }
-            catch (System.InvalidOperationException ) { }
+            catch (System.InvalidOperationException) { }
         }
         void PickFirst()
         {
-            if (Element==null)
+            if (Element == null)
             {
                 bool isintance = DialogUtils.QuestionMsg("Select Option Snoop Element");
                 if (!isintance)
@@ -339,9 +343,17 @@ namespace RevitElementBipChecker.Viewmodel
             }
         }
 
+        void ExportJson()
+        {
+            DataTable dataTable = Data.ToDataTable2();
+            dataTable.Columns.RemoveAt(0);
+            dataTable.WriteJson(out string path);
+            Process.Start("explorer.exe",path);
+        }
+
         void PickLink_Element_Event()
         {
-            revitEvent.Run(PickLink_Element,true,null,null,false);
+            revitEvent.Run(PickLink_Element, true, null, null, false);
         }
         private void PickLink_Element()
         {

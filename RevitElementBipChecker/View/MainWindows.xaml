@@ -24,7 +24,12 @@
                 Margin="5,5,5,5"
                 Command="{Binding OpenExcel}"
                 Content="Open In Excel"
-                ToolTip="Save Data To Document" />
+                ToolTip="Save data csv format to path document" />
+            <Button
+                Margin="5,5,5,5"
+                Command="{Binding OpenJson}"
+                Content="Open In Json"
+                ToolTip="Save Data json format to path document" />
             <Button
                 Margin="5,5,5,5"
                 Command="{Binding PickElement}"
