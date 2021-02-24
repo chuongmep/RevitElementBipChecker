@@ -10,8 +10,8 @@ Project Update From  <a href="https://github.com/ottosson">ottosson</a> and <a h
 Solution Check Full Parameter : 
 - Search Parameter Of Element And Snoop All Value For Developer
 - Support Parameter Type And Instance
-- Export Parameter to Excel (csv format)
-- Export Parameter to Json (json format)
+- Export Parameter to Excel (*csv format*)
+- Export Parameter to Json (*json format*)
 - Interactive Live With Revit Project 
 - Select Quickly Change Snoop Element
 - Support Snoop LinkedElement
