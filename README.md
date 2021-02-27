@@ -64,6 +64,6 @@ git clone https://github.com/chuongmep/RevitElementBipChecker.git
 
 ### Reference
 
-![jeremytammik](https://github.com/jeremytammik/BipChecker)
+<a href="https://github.com/jeremytammik/BipChecker">jeremytammik</a> 
 
-![ottosson](https://github.com/ottosson/BipChecker-WPF)
+<a href="https://github.com/ottosson/BipChecker-WPF">ottosson</a> 
