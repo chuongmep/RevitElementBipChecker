@@ -51,8 +51,8 @@ namespace RevitElementBipChecker.Model
         // and calls the CanExecute method when it deems it necessary
         public event EventHandler CanExecuteChanged
         {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
         }
         #endregion
 
