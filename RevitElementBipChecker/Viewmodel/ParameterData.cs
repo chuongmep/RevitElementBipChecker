@@ -16,8 +16,7 @@ namespace RevitElementBipChecker.Viewmodel
             this.Type = parameter.GetParameterType();
             this.ReadWrite = parameter.IsReadWrite();
             this.Value = parameter.GetValue();
-            this.StringValue = (StorageType.ElementId == parameter.StorageType)
-                ? parameter.GetParameterValue2(doc) : parameter.AsValueString();
+            this.StringValue = parameter.AsValueString() ?? "";
             this.Shared = parameter.Shared();
             this.GUID = parameter.Guid();
             this.TypeOrInstance = isinstance?"Instance":"Type";
