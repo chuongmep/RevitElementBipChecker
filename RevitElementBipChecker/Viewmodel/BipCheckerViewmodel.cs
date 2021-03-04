@@ -1,4 +1,5 @@
-﻿using System;
+﻿#region NameSpace
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -18,6 +19,7 @@ using Autodesk.Revit.UI.Selection;
 using OOG.Core.RevitData;
 using RevitElementBipChecker.Model;
 using RevitElementBipChecker.View;
+#endregion
 
 namespace RevitElementBipChecker.Viewmodel
 {
@@ -59,42 +61,6 @@ namespace RevitElementBipChecker.Viewmodel
                 if (data == null)
                 {
                     data = new ObservableCollection<ParameterData>();
-
-                    #region Remove Fix
-                    //var bipNames = Enum.GetNames(typeof(BuiltInParameter));
-                    //foreach (string bipname in bipNames)
-                    //{
-                    //    if (Element.Category.Name == "Parts")
-                    //    {
-                    //        break;
-                    //    }
-                    //    if (!Enum.TryParse(bipname, out BuiltInParameter bip))
-                    //    {
-                    //        continue;
-                    //    }
-                    //    MessageBox.Show(bip.ToString());
-                    //    Parameter pradata = Element.get_Parameter(bip);
-                    //    if (pradata != null && IsInstance)
-                    //    {
-                    //        ParameterData parameterData = new ParameterData(pradata, Element.Document);
-                    //        if (!data.Contains(parameterData))
-                    //        {
-                    //            data.Add(parameterData);
-                    //        }
-                    //    }
-                    //    Parameter pradataType = ElementType.get_Parameter(bip);
-                    //    if (pradataType != null && IsType)
-                    //    {
-                    //        ParameterData parameterData = new ParameterData(pradataType, Element.Document, false);
-                    //        if (!data.Contains(parameterData))
-                    //        {
-                    //            data.Add(parameterData);
-                    //        }
-                    //    }
-                    //}
-
-                    #endregion
-
                     if (IsInstance)
                     {
                         foreach (Parameter parameter in Element.Parameters)
@@ -120,7 +86,6 @@ namespace RevitElementBipChecker.Viewmodel
                     CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(data);
                     view.SortDescriptions.Add(new SortDescription("TypeOrInstance", ListSortDirection.Ascending));
                     view.SortDescriptions.Add(new SortDescription("ParameterName", ListSortDirection.Ascending));
-
 
                 }
                 return data;
