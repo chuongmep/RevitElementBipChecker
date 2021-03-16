@@ -1,4 +1,5 @@
-﻿using Autodesk.Revit.DB;
+﻿using System.Linq;
+using Autodesk.Revit.DB;
 using RevitElementBipChecker.Model;
 
 namespace RevitElementBipChecker.Viewmodel
@@ -22,6 +23,8 @@ namespace RevitElementBipChecker.Viewmodel
             this.Shared = parameter.Shared();
             this.GUID = parameter.Guid();
             this.TypeOrInstance = isinstance?"Instance":"Type";
+            this.AssGlobalPara = parameter.GetAssGlobalParameter(doc);
+            this.AssGlobalParaValue = parameter.GetAssGlobalParameterValue(doc);
         }
 
         public Autodesk.Revit.DB.Parameter Parameter { get; set; }
@@ -38,6 +41,8 @@ namespace RevitElementBipChecker.Viewmodel
         public string Shared { get; set; }
         public string GUID { get; set; }
 
+        public string AssGlobalPara { get; set; }
+        public string AssGlobalParaValue { get; set; }
         
     }
 }

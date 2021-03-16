@@ -67,3 +67,14 @@ git clone https://github.com/chuongmep/RevitElementBipChecker.git
 <a href="https://github.com/jeremytammik/BipChecker">jeremytammik</a> 
 
 <a href="https://github.com/ottosson/BipChecker-WPF">ottosson</a> 
+
+
+### Log Change
+
+1.0.1 : First Release
+
+1.0.2 : Fix Parameter Value String
+
+1.0.3 :
+
+- [x] Add Check Snoop Associated Global Parameter 

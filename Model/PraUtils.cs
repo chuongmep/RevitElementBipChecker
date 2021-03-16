@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using RevitElementBipChecker.Viewmodel;
+using GlobalParameter = Autodesk.Revit.DB.GlobalParameter;
 
 namespace RevitElementBipChecker.Model
 {
     public static class PraUtils
     {
+
         public const string Caption = "Built-in Parameter Checker";
         /// <summary>
         /// Return Element Selected
@@ -33,7 +37,7 @@ namespace RevitElementBipChecker.Model
             {
                 value = ((System.Collections.IEnumerable)t.GetProperty("Elements").GetValue(_uidoc.Selection, null)).Cast<Element>().ToList();
             }
-            return value.OrderBy(x=>x.Name).ToList();
+            return value.OrderBy(x => x.Name).ToList();
         }
 
         /// <summary>
@@ -83,7 +87,7 @@ namespace RevitElementBipChecker.Model
         /// <returns></returns>
         public static string IsReadWrite(this Parameter parameter)
         {
-            return parameter.IsReadOnly?"read-only" : "read-write";
+            return parameter.IsReadOnly ? "read-only" : "read-write";
         }
 
 
@@ -270,5 +274,58 @@ namespace RevitElementBipChecker.Model
         {
             return parameter.IsShared ? parameter.GUID.ToString() : string.Empty;
         }
+
+
+        /// <summary>
+        /// Return Global Parameter Name
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <param name="doc"></param>
+        /// <returns></returns>
+        public static string GetAssGlobalParameter(this Parameter parameter, Document doc)
+        {
+            Dictionary<string, string> gloDictionary = new Dictionary<string, string>();
+            ElementId elementId = parameter.GetAssociatedGlobalParameter();
+            if (elementId != null)
+            {
+                if (doc.GetElement(elementId) is GlobalParameter globalParameter)
+                {
+                    return globalParameter.GetDefinition().Name;
+                }
+            }
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Return Global Parameter Value
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <param name="doc"></param>
+        /// <returns></returns>
+        public static string GetAssGlobalParameterValue(this Parameter parameter, Document doc)
+        {
+            Dictionary<string, string> gloDictionary = new Dictionary<string, string>();
+            ElementId elementId = parameter.GetAssociatedGlobalParameter();
+            if (elementId != null)
+            {
+                if (doc.GetElement(elementId) is GlobalParameter globalParameter)
+                {
+                    DoubleParameterValue doublevalue = globalParameter.GetValue() as DoubleParameterValue;
+                    StringParameterValue strpra = globalParameter.GetValue() as StringParameterValue;
+                    if (doublevalue != null)
+                    {
+                        return RealString(doublevalue.Value);
+                    }
+                    if (strpra != null)
+                    {
+                        return strpra.Value;
+                    }
+                    return string.Empty;
+
+                }
+            }
+            return string.Empty;
+        }
+
     }
 }

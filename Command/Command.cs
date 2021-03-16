@@ -20,6 +20,7 @@ namespace RevitElementBipChecker.Command
 
             BipCheckerViewmodel vm = new BipCheckerViewmodel(uidoc);
             MainWindows frMainWindows = new MainWindows(vm);
+            frMainWindows.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             frMainWindows.SetRevitAsWindowOwner();
             frMainWindows.Show();
             return Result.Succeeded;
