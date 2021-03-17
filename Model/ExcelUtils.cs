@@ -50,7 +50,7 @@ namespace RevitElementBipChecker.Model
 
             lines.AddRange(valueLines);
 
-            File.WriteAllLines(path, lines,Encoding.ASCII);
+            File.WriteAllLines(path, lines,Encoding.UTF8);
         }
 
         /// <summary>
