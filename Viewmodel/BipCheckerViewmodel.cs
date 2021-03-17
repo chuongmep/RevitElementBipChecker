@@ -1,5 +1,6 @@
 ﻿#region NameSpace
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
@@ -286,7 +287,8 @@ namespace RevitElementBipChecker.Viewmodel
         {
             try
             {
-                DataTable dataTable = Data.ToDataTable2();
+                List<ParameterData> parameterDatas = frmmain.lsBipChecker.Items.Cast<ParameterData>().ToList();
+                DataTable dataTable = parameterDatas.ToDataTable2();
                 dataTable.Columns.RemoveAt(0);
                 dataTable.OpenExcel(out string path);
                 Process.Start(path);
@@ -303,10 +305,11 @@ namespace RevitElementBipChecker.Viewmodel
 
         void ExportJson()
         {
-            DataTable dataTable = Data.ToDataTable2();
+            List<ParameterData> parameterDatas = frmmain.lsBipChecker.Items.Cast<ParameterData>().ToList();
+            DataTable dataTable = parameterDatas.ToDataTable2();
             dataTable.Columns.RemoveAt(0);
             dataTable.WriteJson(out string path);
-            Process.Start("explorer.exe",path);
+            Process.Start("explorer.exe", path);
         }
 
         void PickLink_Element_Event()

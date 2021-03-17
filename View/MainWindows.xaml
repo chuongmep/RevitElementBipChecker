@@ -93,6 +93,7 @@
         <ListView
             Name="lsBipChecker"
             Grid.Row="1"
+            GridViewColumnHeader.Click="GridViewColumnHeaderClickedHandler"
             Grid.Column="1"
             ScrollViewer.HorizontalScrollBarVisibility="Visible"
             ScrollViewer.VerticalScrollBarVisibility="Visible"

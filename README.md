@@ -77,4 +77,7 @@ git clone https://github.com/chuongmep/RevitElementBipChecker.git
 
 1.0.3 :
 
-- [x] Add Check Snoop Associated Global Parameter 
+- [x] Add Check Snoop Associated Global Parameter
+1.0.4 :
+- [x] Add Sort ClickHeader
+- [x] Export correct with sort 
