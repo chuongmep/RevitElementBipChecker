@@ -87,7 +87,7 @@ namespace RevitElementBipChecker.Model
         /// <returns></returns>
         public static string IsReadWrite(this Parameter parameter)
         {
-            return parameter.IsReadOnly ? "read-only" : "read-write";
+            return parameter.IsReadOnly ? "Read Only" : "Read Write";
         }
 
 

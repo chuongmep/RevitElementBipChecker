@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using RevitElementBipChecker.Model;
 using RevitElementBipChecker.Viewmodel;
 
 namespace RevitElementBipChecker.View
@@ -54,8 +55,8 @@ namespace RevitElementBipChecker.View
                         }
                     }
 
-                    string header = headerClicked.Column.Header as string;
-                    Sort(header, direction);
+                    string header = (string) headerClicked.Column.Header;
+                    Sort(header.RemoveInvalid(), direction);
 
                     _lastHeaderClicked = headerClicked;
                     _lastDirection = direction;
