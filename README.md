@@ -78,6 +78,8 @@ git clone https://github.com/chuongmep/RevitElementBipChecker.git
 1.0.3 :
 
 - [x] Add Check Snoop Associated Global Parameter
+
 1.0.4 :
 - [x] Add Sort ClickHeader
-- [x] Export correct with sort 
+- [x] Export correct with sort
+- [x] Fix Export Character _"_ Unit Inch 

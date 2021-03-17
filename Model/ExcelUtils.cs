@@ -5,6 +5,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace RevitElementBipChecker.Model
@@ -44,12 +45,12 @@ namespace RevitElementBipChecker.Model
             var header = string.Join(",", columnNames.Select(name => $"\"{name}\""));
             lines.Add(header);
 
-            var valueLines = dt.AsEnumerable()
-                .Select(row => string.Join(",", row.ItemArray.Select(val => $"\"{val}\"")));
+            EnumerableRowCollection<string> valueLines = dt.AsEnumerable()
+                .Select(row => string.Join(",", row.ItemArray.Select(val => $"\"{val.ToString().FixUnitInch()}\"")));
 
             lines.AddRange(valueLines);
 
-            File.WriteAllLines(path, lines,Encoding.UTF8);
+            File.WriteAllLines(path, lines,Encoding.ASCII);
         }
 
         /// <summary>
@@ -119,6 +120,17 @@ namespace RevitElementBipChecker.Model
             }
 
             return Encoding.UTF8.GetString(utf8Bytes,0,utf8Bytes.Length);
+        }
+
+        public static string FixUnitInch(this string str)
+        {
+            string pattern = "\"$";
+            Regex regex = new Regex(pattern);
+            if (regex.IsMatch(str))
+            { 
+                return str.Replace(str, str + " ");
+            }
+            return str;
         }
     }
 }
