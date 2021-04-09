@@ -13,6 +13,7 @@ namespace RevitElementBipChecker.Viewmodel
             this.ParameterName = parameter.Definition.Name;
             this.Id = parameter.Id.ToString();
             this.ParameterGroup = parameter.Definition.ParameterGroup.ToString();
+            this.ParameterType = parameter.Definition.ParameterType.ToString();
             this.GroupName = LabelUtils.GetLabelFor(parameter.Definition.ParameterGroup);
             this.Type = parameter.GetParameterType();
             this.ReadWrite = parameter.IsReadWrite();
@@ -37,6 +38,7 @@ namespace RevitElementBipChecker.Viewmodel
         public string Value { get; set; }
         public string StringValue { get; set; }
         public string ParameterGroup { get; set; }
+        public string ParameterType { get; set; }
         public string GroupName { get; set; }
         public string Shared { get; set; }
         public string GUID { get; set; }

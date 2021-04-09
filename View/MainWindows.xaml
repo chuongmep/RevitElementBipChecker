@@ -6,8 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Revit Element Bip Checker"
     Width="Auto"
-    MinHeight="420"
     MinWidth="700"
+    MinHeight="420"
     d:DesignHeight="450"
     d:DesignWidth="800"
     ResizeMode="CanResize"
@@ -93,12 +93,12 @@
         <ListView
             Name="lsBipChecker"
             Grid.Row="1"
-            GridViewColumnHeader.Click="GridViewColumnHeaderClickedHandler"
             Grid.Column="1"
-            ScrollViewer.HorizontalScrollBarVisibility="Visible"
-            ScrollViewer.VerticalScrollBarVisibility="Visible"
             Margin="10"
-            ItemsSource="{Binding Data}">
+            GridViewColumnHeader.Click="GridViewColumnHeaderClickedHandler"
+            ItemsSource="{Binding Data}"
+            ScrollViewer.HorizontalScrollBarVisibility="Visible"
+            ScrollViewer.VerticalScrollBarVisibility="Visible">
             <ListView.View>
                 <GridView>
                     <GridViewColumn
@@ -117,6 +117,10 @@
                         Width="150"
                         DisplayMemberBinding="{Binding BuiltInParameter}"
                         Header="BuiltInParameter" />
+                    <GridViewColumn
+                        Width="150"
+                        DisplayMemberBinding="{Binding ParameterType}"
+                        Header="ParameterType" />
                     <GridViewColumn
                         Width="100"
                         DisplayMemberBinding="{Binding Type}"
