@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Input;
 using RevitElementBipChecker.Model;
 using RevitElementBipChecker.Viewmodel;
 
@@ -20,6 +21,7 @@ namespace RevitElementBipChecker.View
             this.Viewmodel = vm;
             Viewmodel.frmmain = this;
             InitializeComponent();
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
         private void AboutOnClick(object sender, RoutedEventArgs e)
@@ -73,6 +75,12 @@ namespace RevitElementBipChecker.View
             SortDescription sd = new SortDescription(sortBy, direction);
             dataView.SortDescriptions.Add(sd);
             dataView.Refresh();
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+                Close();
         }
     }
 }

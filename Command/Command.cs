@@ -9,7 +9,7 @@ using RevitElementBipChecker.Viewmodel;
 
 namespace RevitElementBipChecker.Command
 {
-    [Transaction(TransactionMode.ReadOnly)]
+    [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
     [Journaling(JournalingMode.UsingCommandData)]
     public class Command : IExternalCommand
