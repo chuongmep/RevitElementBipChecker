@@ -3,14 +3,16 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:filterDataGrid="http://filterdatagrid.control.com/2021"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Revit Element Bip Checker"
-    PreviewKeyDown="HandleEsc"
     Width="Auto"
-    MinWidth="700"
+    Height="Auto"
+    MinWidth="500"
     MinHeight="420"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    PreviewKeyDown="HandleEsc"
     ResizeMode="CanResize"
     mc:Ignorable="d">
     <Grid>
@@ -91,7 +93,95 @@
 
             <Button Click="AboutOnClick" Content="About" />
         </StackPanel>
-        <ListView
+        <filterDataGrid:FilterDataGrid
+            x:Name="lsBipChecker"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="10,10,0,2"
+            AlternatingRowBackground="WhiteSmoke"
+            AlternationCount="2"
+            AutoGenerateColumns="False"
+            Background="Transparent"
+            CanUserAddRows="False"
+            ColumnWidth="*"
+            DateFormatString="d"
+            HorizontalGridLinesBrush="LightGray"
+            IsReadOnly="True"
+            ItemsSource="{Binding Data, UpdateSourceTrigger=PropertyChanged}"
+            ShowElapsedTime="True"
+            ShowStatusBar="True"
+            VerticalGridLinesBrush="LightGray"
+            VerticalScrollBarVisibility="Visible"
+            HorizontalScrollBarVisibility="Auto"
+            VirtualizingStackPanel.IsVirtualizing="True">
+            <filterDataGrid:FilterDataGrid.Columns>
+                <filterDataGrid:DataGridTextColumn
+                    Binding="{Binding ParameterName}"
+                    FieldName="ParameterName"
+                    Width="Auto"
+                    Header="Parameter Name"
+                    IsColumnFiltered="True" />
+                <filterDataGrid:DataGridTextColumn
+                    Binding="{Binding Id}"
+                    Header="Id"
+                    IsColumnFiltered="True" />
+                <filterDataGrid:DataGridTextColumn
+                    Binding="{Binding TypeOrInstance}"
+                    Header="Is Instance"
+                    IsColumnFiltered="True" />
+                <filterDataGrid:DataGridTextColumn
+                    Binding="{Binding BuiltInParameter}"
+                    Header="BuiltInParameter"
+                    IsColumnFiltered="True" />
+                <filterDataGrid:DataGridTextColumn
+                    Binding="{Binding ParameterType}"
+                    Header="ParameterType"
+                    IsColumnFiltered="True" />
+                <filterDataGrid:DataGridTextColumn
+                    Binding="{Binding Type}"
+                    Header="ParameterType"
+                    IsColumnFiltered="True" />
+                <filterDataGrid:DataGridTextColumn
+                    Binding="{Binding ReadWrite}"
+                    Header="ReadWrite"
+                    IsColumnFiltered="True" />
+                <filterDataGrid:DataGridTextColumn
+                    Binding="{Binding Value}"
+                    Header="ReadWrite"
+                    IsColumnFiltered="True" />
+                <filterDataGrid:DataGridTextColumn
+                    Binding="{Binding StringValue}"
+                    Header="String Value"
+                    IsColumnFiltered="True" />
+                <filterDataGrid:DataGridTextColumn
+                    Binding="{Binding ParameterGroup}"
+                    Header="ParameterGroup"
+                    IsColumnFiltered="True" />
+                <filterDataGrid:DataGridTextColumn
+                    Binding="{Binding GroupName}"
+                    Header="GroupName"
+                    IsColumnFiltered="True" />
+                <filterDataGrid:DataGridTextColumn
+                    Binding="{Binding Shared}"
+                    Header="Shared"
+                    IsColumnFiltered="True" />
+                <filterDataGrid:DataGridTextColumn
+                    Binding="{Binding GUID}"
+                    Header="GUID"
+                    IsColumnFiltered="True" />
+                <filterDataGrid:DataGridTextColumn
+                    Binding="{Binding AssGlobalPara}"
+                    Header="AssGlobalPara"
+                    IsColumnFiltered="True" />
+                <filterDataGrid:DataGridTextColumn
+                    Binding="{Binding AssGlobalParaValue}"
+                    Header="AssGlobalParaValue"
+                    IsColumnFiltered="True" />
+            </filterDataGrid:FilterDataGrid.Columns>
+
+
+        </filterDataGrid:FilterDataGrid>
+        <!--<ListView
             Name="lsBipChecker"
             Grid.Row="1"
             Grid.Column="1"
@@ -176,7 +266,7 @@
                 </ContextMenu>
             </ListView.ContextMenu>
 
-        </ListView>
+        </ListView>-->
         <TextBox
             x:Name="tbxSeach"
             Grid.Row="0"
