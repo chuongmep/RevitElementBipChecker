@@ -117,33 +117,36 @@
             <filterDataGrid:FilterDataGrid.Columns>
                 <filterDataGrid:DataGridTextColumn
                     Binding="{Binding ParameterName}"
-                    FieldName="ParameterName"
                     Width="Auto"
                     Header="Parameter Name"
-                    IsColumnFiltered="True" />
+                    IsColumnFiltered="False" />
                 <filterDataGrid:DataGridTextColumn
                     Binding="{Binding Id}"
                     Header="Id"
-                    IsColumnFiltered="True" />
+                    IsColumnFiltered="False" />
                 <filterDataGrid:DataGridTextColumn
                     Binding="{Binding TypeOrInstance}"
+                    FieldName="TypeOrInstance"
                     Header="Is Instance"
                     IsColumnFiltered="True" />
                 <filterDataGrid:DataGridTextColumn
                     Binding="{Binding BuiltInParameter}"
                     Header="BuiltInParameter"
-                    IsColumnFiltered="True" />
+                    IsColumnFiltered="False" />
                 <filterDataGrid:DataGridTextColumn
                     Binding="{Binding ParameterType}"
                     Header="ParameterType"
+                    FieldName="ParameterType"
                     IsColumnFiltered="True" />
                 <filterDataGrid:DataGridTextColumn
                     Binding="{Binding Type}"
-                    Header="ParameterType"
+                    Header="Type"
+                    FieldName="Type"
                     IsColumnFiltered="True" />
                 <filterDataGrid:DataGridTextColumn
                     Binding="{Binding ReadWrite}"
                     Header="ReadWrite"
+                    FieldName="ReadWrite"
                     IsColumnFiltered="True" />
                 <filterDataGrid:DataGridTextColumn
                     Binding="{Binding Value}"
@@ -152,31 +155,34 @@
                 <filterDataGrid:DataGridTextColumn
                     Binding="{Binding StringValue}"
                     Header="String Value"
-                    IsColumnFiltered="True" />
+                    IsColumnFiltered="False" />
                 <filterDataGrid:DataGridTextColumn
                     Binding="{Binding ParameterGroup}"
                     Header="ParameterGroup"
+                    FieldName="ParameterGroup"
                     IsColumnFiltered="True" />
                 <filterDataGrid:DataGridTextColumn
                     Binding="{Binding GroupName}"
                     Header="GroupName"
+                    FieldName="GroupName"
                     IsColumnFiltered="True" />
                 <filterDataGrid:DataGridTextColumn
                     Binding="{Binding Shared}"
                     Header="Shared"
+                    FieldName ="Shared"
                     IsColumnFiltered="True" />
                 <filterDataGrid:DataGridTextColumn
                     Binding="{Binding GUID}"
                     Header="GUID"
-                    IsColumnFiltered="True" />
+                    IsColumnFiltered="False" />
                 <filterDataGrid:DataGridTextColumn
                     Binding="{Binding AssGlobalPara}"
                     Header="AssGlobalPara"
-                    IsColumnFiltered="True" />
+                    IsColumnFiltered="False" />
                 <filterDataGrid:DataGridTextColumn
                     Binding="{Binding AssGlobalParaValue}"
                     Header="AssGlobalParaValue"
-                    IsColumnFiltered="True" />
+                    IsColumnFiltered="False" />
             </filterDataGrid:FilterDataGrid.Columns>
 
 
