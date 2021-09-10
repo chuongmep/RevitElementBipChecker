@@ -106,96 +106,96 @@
             ColumnWidth="*"
             DateFormatString="d"
             HorizontalGridLinesBrush="LightGray"
+            HorizontalScrollBarVisibility="Auto"
             IsReadOnly="True"
             ItemsSource="{Binding Data, UpdateSourceTrigger=PropertyChanged}"
             ShowElapsedTime="True"
             ShowStatusBar="True"
             VerticalGridLinesBrush="LightGray"
             VerticalScrollBarVisibility="Visible"
-            HorizontalScrollBarVisibility="Auto"
             VirtualizingStackPanel.IsVirtualizing="True">
             <filterDataGrid:FilterDataGrid.Columns>
                 <filterDataGrid:DataGridTextColumn
-                    Binding="{Binding ParameterName}"
                     Width="Auto"
+                    Binding="{Binding ParameterName}"
                     Header="Parameter Name"
                     IsColumnFiltered="False" />
                 <filterDataGrid:DataGridTextColumn
+                    Width="Auto"
                     Binding="{Binding Id}"
                     Header="Id"
-                    Width="Auto"
                     IsColumnFiltered="False" />
                 <filterDataGrid:DataGridTextColumn
+                    Width="Auto"
                     Binding="{Binding TypeOrInstance}"
                     FieldName="TypeOrInstance"
                     Header="Is Instance"
-                    Width="Auto"
-                    IsColumnFiltered="True" />
+                    IsColumnFiltered="False" />
                 <filterDataGrid:DataGridTextColumn
+                    Width="Auto"
                     Binding="{Binding BuiltInParameter}"
                     Header="BuiltInParameter"
-                    Width="Auto"
                     IsColumnFiltered="False" />
                 <filterDataGrid:DataGridTextColumn
+                    Width="Auto"
                     Binding="{Binding ParameterType}"
-                    Header="ParameterType"
-                    Width="Auto"
                     FieldName="ParameterType"
+                    Header="ParameterType"
                     IsColumnFiltered="True" />
                 <filterDataGrid:DataGridTextColumn
+                    Width="Auto"
                     Binding="{Binding Type}"
-                    Header="Type"
-                    Width="Auto"
                     FieldName="Type"
+                    Header="Type"
                     IsColumnFiltered="True" />
                 <filterDataGrid:DataGridTextColumn
-                    Binding="{Binding ReadWrite}"
-                    Header="ReadWrite"
                     Width="Auto"
+                    Binding="{Binding ReadWrite}"
                     FieldName="ReadWrite"
+                    Header="ReadWrite"
                     IsColumnFiltered="True" />
                 <filterDataGrid:DataGridTextColumn
+                    Width="Auto"
                     Binding="{Binding Value}"
                     Header="ReadWrite"
-                    Width="Auto"
                     IsColumnFiltered="True" />
                 <filterDataGrid:DataGridTextColumn
+                    Width="Auto"
                     Binding="{Binding StringValue}"
                     Header="String Value"
-                    Width="Auto"
                     IsColumnFiltered="False" />
                 <filterDataGrid:DataGridTextColumn
+                    Width="Auto"
                     Binding="{Binding ParameterGroup}"
-                    Header="ParameterGroup"
-                    Width="Auto"
                     FieldName="ParameterGroup"
+                    Header="ParameterGroup"
                     IsColumnFiltered="True" />
                 <filterDataGrid:DataGridTextColumn
+                    Width="Auto"
                     Binding="{Binding GroupName}"
-                    Header="GroupName"
-                    Width="Auto"
                     FieldName="GroupName"
+                    Header="GroupName"
                     IsColumnFiltered="True" />
                 <filterDataGrid:DataGridTextColumn
-                    Binding="{Binding Shared}"
-                    Header="Shared"
                     Width="Auto"
-                    FieldName ="Shared"
+                    Binding="{Binding Shared}"
+                    FieldName="Shared"
+                    Header="Shared"
                     IsColumnFiltered="True" />
                 <filterDataGrid:DataGridTextColumn
+                    Width="Auto"
                     Binding="{Binding GUID}"
                     Header="GUID"
-                    Width="Auto"
                     IsColumnFiltered="False" />
                 <filterDataGrid:DataGridTextColumn
+                    Width="Auto"
                     Binding="{Binding AssGlobalPara}"
                     Header="AssGlobalPara"
-                    Width="Auto"
                     IsColumnFiltered="False" />
                 <filterDataGrid:DataGridTextColumn
+                    Width="Auto"
                     Binding="{Binding AssGlobalParaValue}"
                     Header="AssGlobalParaValue"
-                    Width="Auto"
                     IsColumnFiltered="False" />
             </filterDataGrid:FilterDataGrid.Columns>
 
@@ -291,7 +291,7 @@
             x:Name="tbxSeach"
             Grid.Row="0"
             Grid.Column="1"
-            Margin="5,0,0,5"
+            Margin="10,0,10,0"
             Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
             TextAlignment="Left">
             <TextBox.Resources>
