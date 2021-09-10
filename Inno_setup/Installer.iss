@@ -34,7 +34,7 @@ WizardStyle=modern
 UninstallDisplayName={#AppName}
 ; ICON CONFIGURATION
 SetupIconFile=Checker.ico
-UninstallDisplayIcon={app}\unins000.exe
+UninstallDisplayIcon={uninstallexe}
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
