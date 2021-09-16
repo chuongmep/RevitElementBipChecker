@@ -197,9 +197,20 @@
                     Binding="{Binding AssGlobalParaValue}"
                     Header="AssGlobalParaValue"
                     IsColumnFiltered="False" />
+               
             </filterDataGrid:FilterDataGrid.Columns>
-
-
+           
+            <filterDataGrid:FilterDataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Command="{Binding CopyParameterName}" Header="Copy ParameterName" />
+                    <MenuItem Command="{Binding CopyBuiltInParameter}" Header="Copy BuiltInParameter" />
+                    <MenuItem Command="{Binding CopyType}" Header="Copy Type" />
+                    <MenuItem Command="{Binding CopyValue}" Header="Copy Value" />
+                    <MenuItem Command="{Binding CopyParameterGroup}" Header="Copy ParameterGroup" />
+                    <MenuItem Command="{Binding CopyGroupName}" Header="Copy GroupName" />
+                    <MenuItem Command="{Binding CopyGUID}" Header="Copy GUID" />
+                </ContextMenu>
+            </filterDataGrid:FilterDataGrid.ContextMenu>
         </filterDataGrid:FilterDataGrid>
         <!--<ListView
             Name="lsBipChecker"

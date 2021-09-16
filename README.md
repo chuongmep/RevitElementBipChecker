@@ -8,6 +8,10 @@
             
 Project Update From  <a href="https://github.com/ottosson">ottosson</a> and <a href="https://github.com/jeremytammik">jeremytammik</a> with WPF Solution And Extend Funtion, fix Error for package nuget dependent old with .NET.
 
+### Download 
+
+<a href="https://github.com/chuongmep/RevitElementBipChecker/releases" target="_blank">RevitElementBipChecker</a> 
+
 ### Solution Check Full Parameter : 
 
 - Search Parameter Of Element And Snoop All Value For Developer
@@ -56,6 +60,10 @@ git clone https://github.com/chuongmep/RevitElementBipChecker.git
 1 [https://github.com/chuongmep/RevitAPI-Nuget](https://github.com/chuongmep/RevitAPI-Nuget)
 
 2.[https://github.com/JamesNK/Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)
+
+### Get Datagrid library from:
+
+<a href="https://github.com/macgile/DataGridFilter" target="_blank">DataGridFilter</a> 
 
 #### Build solution: 
 
