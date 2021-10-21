@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="Command\Command.cs" />
     <Compile Include="Model\DialogUtils.cs" />
+    <Compile Include="Model\BaseElement.cs" />
     <Compile Include="Model\ExcelUtils.cs" />
     <Compile Include="Model\IEnumerableUtils.cs" />
     <Compile Include="Model\JsonUtils.cs" />
@@ -94,8 +95,13 @@
     <Compile Include="Model\StringUtils.cs" />
     <Compile Include="Model\WindowHandle.cs" />
     <Compile Include="Viewmodel\BipCheckerViewmodel.cs" />
-    <Compile Include="Viewmodel\ParameterData.cs" />
+    <Compile Include="Viewmodel\CopyCommand.cs" />
+    <Compile Include="Viewmodel\ExportExcelCommand.cs" />
+    <Compile Include="Viewmodel\ExportJsonCommand.cs" />
+    <Compile Include="Model\ParameterData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Viewmodel\PickFirstCommand.cs" />
+    <Compile Include="Viewmodel\SelectedCommand.cs" />
     <Compile Include="View\MainWindows.xaml.cs">
       <DependentUpon>MainWindows.xaml</DependentUpon>
     </Compile>

@@ -1,8 +1,6 @@
-﻿using System.Linq;
-using Autodesk.Revit.DB;
-using RevitElementBipChecker.Model;
+﻿using Autodesk.Revit.DB;
 
-namespace RevitElementBipChecker.Viewmodel
+namespace RevitElementBipChecker.Model
 {
    public class ParameterData
     {

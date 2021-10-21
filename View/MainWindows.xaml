@@ -37,23 +37,19 @@
                 ToolTip="Save Data json format to path document" />
             <Button
                 Margin="5,5,5,5"
-                Command="{Binding PickElement}"
-                Content="Check Element" />
-            <Button
-                Margin="5,5,5,5"
-                Command="{Binding PickLinkElement}"
-                Content="Check LinkElement" />
+                Command="{Binding SnoopElement}"
+                Content="Snoop" />
             <TextBox
                 Margin="5,5,5,5"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Text="{Binding ElementId}"
+                Text="{Binding Element.Name}"
                 ToolTip="Element Id" />
             <TextBox
                 Margin="5,5,5,5"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Text="{Binding CategoryName}"
+                Text="{Binding Category}"
                 ToolTip="Category Of Element" />
             <TextBox
                 Margin="5,5,5,5"
@@ -79,6 +75,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Content="Instance"
+                        Command="{Binding CheckTypeInstance}"
                         IsChecked="{Binding IsInstance, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox
                         Grid.Row="1"
@@ -86,6 +83,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Content="Type"
+                        Command="{Binding CheckTypeInstance}"
                         IsChecked="{Binding IsType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </Grid>
 
@@ -108,7 +106,7 @@
             HorizontalGridLinesBrush="LightGray"
             HorizontalScrollBarVisibility="Auto"
             IsReadOnly="True"
-            ItemsSource="{Binding Data, UpdateSourceTrigger=PropertyChanged}"
+            ItemsSource="{Binding Data}"
             ShowElapsedTime="True"
             ShowStatusBar="True"
             VerticalGridLinesBrush="LightGray"
@@ -217,6 +215,7 @@
             Grid.Row="1"
             Grid.Column="1"
             Margin="10"
+            IsReadOnly="True"
             AlternatingRowBackground="Transparent"
             AlternationCount="2"
             AutoGenerateColumns="False"
@@ -224,6 +223,35 @@
             ItemsSource="{Binding Data}"
             ScrollViewer.HorizontalScrollBarVisibility="Visible"
             ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridCell}">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                </Trigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="True"/>
+                        <Condition Binding="{Binding IsKeyboardFocusWithin, RelativeSource={RelativeSource AncestorType=DataGrid}}" Value="False"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="True"/>
+                        <Condition Binding="{Binding ContextMenu.IsOpen, RelativeSource={RelativeSource AncestorType=DataGrid}}" Value="True"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                </MultiDataTrigger>
+            </Style.Triggers>
+        </Style>
+            </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Header = "Name" Binding = "{Binding ParameterName}" /> 
                 <DataGridTextColumn Header = "Id" Binding = "{Binding Id}" /> 
@@ -243,13 +271,13 @@
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Command="{Binding CopyParameterName}" Header="Copy ParameterName" />
-                    <MenuItem Command="{Binding CopyBuiltInParameter}" Header="Copy BuiltInParameter" />
-                    <MenuItem Command="{Binding CopyType}" Header="Copy Type" />
-                    <MenuItem Command="{Binding CopyValue}" Header="Copy Value" />
-                    <MenuItem Command="{Binding CopyParameterGroup}" Header="Copy ParameterGroup" />
-                    <MenuItem Command="{Binding CopyGroupName}" Header="Copy GroupName" />
-                    <MenuItem Command="{Binding CopyGUID}" Header="Copy GUID" />
+                    <MenuItem Command="{Binding Copy}" CommandParameter="PraName"  Header="Copy ParameterName" />
+                    <MenuItem Command="{Binding Copy}" CommandParameter="BuildIn" Header="Copy BuiltInParameter" />
+                    <MenuItem Command="{Binding Copy}" CommandParameter="Type" Header="Copy Type" />
+                    <MenuItem Command="{Binding Copy}" CommandParameter="Value" Header="Copy Value" />
+                    <MenuItem Command="{Binding Copy}" CommandParameter="PraGroup" Header="Copy ParameterGroup" />
+                    <MenuItem Command="{Binding Copy}" CommandParameter="GName" Header="Copy GroupName" />
+                    <MenuItem Command="{Binding Copy}" CommandParameter="GUID" Header="Copy GUID" />
                 </ContextMenu>
             </DataGrid.ContextMenu>
 

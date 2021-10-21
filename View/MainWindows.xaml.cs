@@ -82,5 +82,6 @@ namespace RevitElementBipChecker.View
             if (e.Key == Key.Escape)
                 Close();
         }
+
     }
 }
