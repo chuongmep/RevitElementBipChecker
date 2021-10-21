@@ -23,7 +23,10 @@ namespace RevitElementBipChecker.Viewmodel
                 {
                     PickLink_Element();
                 }
-                PickElement();
+                else
+                {
+                    PickElement();
+                }
             }
         }
         private void PickLink_Element()
