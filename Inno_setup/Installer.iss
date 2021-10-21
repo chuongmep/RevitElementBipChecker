@@ -3,11 +3,11 @@
 
 #define AppId "B83C55F1-7C4E-4DDD-B609-17FBEA21A137"
 #define AppName "RevitBipChecker"
-#define AppVersion "1.0.6"
+#define AppVersion "1.0.1"
 #define AppPublisher "ChuongHo"
 #define AppURL "http://chuongmep.com/"
 #define AppComments "Revit Bip Element Checker"
-#define BundleDirName "C:\ProgramData\Autodesk\Revit\Addins"
+#define BundleDirName "C:\ProgramData\Autodesk\Revit\Addins\2022"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
@@ -40,18 +40,9 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
 ; Source: "C:\Program Files (x86)\Inno Setup 6\Examples\MyProg.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\App\BipChecker.addin"; DestDir: "{#BundleDirName}\2019"; Flags: ignoreversion
-Source: "..\bin\Debug\RevitElementBipChecker.dll"; DestDir: "{#BundleDirName}\2019"; Flags: ignoreversion
-Source: "..\bin\Debug\FilterDataGrid.dll"; DestDir: "{#BundleDirName}\2019"; Flags: ignoreversion
-Source: "..\App\BipChecker.addin"; DestDir: "{#BundleDirName}\2020"; Flags: ignoreversion
-Source: "..\bin\Debug\RevitElementBipChecker.dll"; DestDir: "{#BundleDirName}\2020"; Flags: ignoreversion
-Source: "..\bin\Debug\FilterDataGrid.dll"; DestDir: "{#BundleDirName}\2020"; Flags: ignoreversion
-Source: "..\App\BipChecker.addin"; DestDir: "{#BundleDirName}\2021"; Flags: ignoreversion
-Source: "..\bin\Debug\RevitElementBipChecker.dll"; DestDir: "{#BundleDirName}\2021"; Flags: ignoreversion
-Source: "..\bin\Debug\FilterDataGrid.dll"; DestDir: "{#BundleDirName}\2021"; Flags: ignoreversion
-Source: "..\App\BipChecker.addin"; DestDir: "{#BundleDirName}\2022"; Flags: ignoreversion
-Source: "..\bin\Debug\RevitElementBipChecker.dll"; DestDir: "{#BundleDirName}\2022"; Flags: ignoreversion
-Source: "..\bin\Debug\FilterDataGrid.dll"; DestDir: "{#BundleDirName}\2022"; Flags: ignoreversion
+Source: "..\App\BipChecker.addin"; DestDir: "{#BundleDirName}"; Flags: ignoreversion
+Source: "..\bin\Debug\RevitElementBipChecker.dll"; DestDir: "{#BundleDirName}"; Flags: ignoreversion
+Source: "..\bin\Debug\FilterDataGrid.dll"; DestDir: "{#BundleDirName}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

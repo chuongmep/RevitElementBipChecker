@@ -90,13 +90,4 @@ git clone https://github.com/chuongmep/RevitElementBipChecker.git
 1.0.4 :
 - [x] Add Sort ClickHeader
 - [x] Export correct with sort
-- [x] Fix Export Character _"_ Unit Inch
-
-1.0.5 :
-- [x] Support Filter Data Grid
-
-1.0.6:
-- [x] Fix Some Error
-
-1.0.7 : 
- - [x] Support Build Exe From Revit 2019 To Revit 2022
+- [x] Fix Export Character _"_ Unit Inch 
