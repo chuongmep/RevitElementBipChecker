@@ -40,10 +40,6 @@
     <Reference Include="AdWindows, Version=3.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Chuongmep.RevitAPI.1.0.1\lib\net48\AdWindows.dll</HintPath>
     </Reference>
-    <Reference Include="FilterDataGrid, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WPF\DataGridFilter\FilterDataGrid\bin\Debug\FilterDataGrid.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
