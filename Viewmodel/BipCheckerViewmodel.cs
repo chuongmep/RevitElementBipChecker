@@ -54,36 +54,34 @@ namespace RevitElementBipChecker.Viewmodel
                         // ignored
                     }
                 }
-                if (data == null)
+
+                data = new ObservableCollection<ParameterData>();
+                if (IsInstance)
                 {
-                    data = new ObservableCollection<ParameterData>();
-                    if (IsInstance)
+                    foreach (Parameter parameter in Element.Parameters)
                     {
-                        foreach (Parameter parameter in Element.Parameters)
-                        {
 
-                            var parameterData = new ParameterData(parameter, Element.Document);
-                            data.Add(parameterData);
-                        }
+                        var parameterData = new ParameterData(parameter, Element.Document);
+                        data.Add(parameterData);
                     }
-
-                    if (IsType && ElementType != null)
-                    {
-                        foreach (Parameter parameter in ElementType.Parameters)
-                        {
-                            var parameterData = new ParameterData(parameter, Element.Document, false);
-                            data.Add(parameterData);
-                        }
-                    }
-
-                    ObservableCollection<ParameterData> list = data.GroupBy(x => x.Parameter.Id).Select(x => x.First()).ToObservableCollection();
-                    data = list;
-                    //Sort
-                    CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(data);
-                    view.SortDescriptions.Add(new SortDescription("TypeOrInstance", ListSortDirection.Ascending));
-                    view.SortDescriptions.Add(new SortDescription("ParameterName", ListSortDirection.Ascending));
-
                 }
+
+                if (IsType && ElementType != null)
+                {
+                    foreach (Parameter parameter in ElementType.Parameters)
+                    {
+                        var parameterData = new ParameterData(parameter, Element.Document, false);
+                        data.Add(parameterData);
+                    }
+                }
+
+                ObservableCollection<ParameterData> list = data.GroupBy(x => x.Parameter.Id).Select(x => x.First()).ToObservableCollection();
+                data = list;
+                //Sort
+                CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(data);
+                view.SortDescriptions.Add(new SortDescription("TypeOrInstance", ListSortDirection.Ascending));
+                view.SortDescriptions.Add(new SortDescription("ParameterName", ListSortDirection.Ascending));
+
                 return data;
             }
             set { OnPropertyChanged(ref data, value); }
@@ -343,9 +341,6 @@ namespace RevitElementBipChecker.Viewmodel
                 MessageBox.Show(e.ToString());
 
             }
-            data = null;
-            itemsView = null;
-            OnPropertyChanged(nameof(Data));
             frmmain?.Show();
         }
         void SelectElementEvent()
@@ -355,11 +350,11 @@ namespace RevitElementBipChecker.Viewmodel
 
         void FreshElement()
         {
-            frmmain.Hide();
+            frmmain.Close();
             Element = null;
-            data = null;
-            itemsView = null;
-            OnPropertyChanged(nameof(Data));
+            frmmain = new MainWindows(this);
+            frmmain.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            frmmain.SetRevitAsWindowOwner();
             frmmain.Show();
         }
 
