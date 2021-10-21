@@ -93,7 +93,7 @@
 
             <Button Click="AboutOnClick" Content="About" />
         </StackPanel>
-        <filterDataGrid:FilterDataGrid
+        <!--<filterDataGrid:FilterDataGrid
             x:Name="lsBipChecker"
             Grid.Row="1"
             Grid.Column="1"
@@ -211,81 +211,37 @@
                     <MenuItem Command="{Binding CopyGUID}" Header="Copy GUID" />
                 </ContextMenu>
             </filterDataGrid:FilterDataGrid.ContextMenu>
-        </filterDataGrid:FilterDataGrid>
-        <!--<ListView
+        </filterDataGrid:FilterDataGrid>-->
+        <DataGrid
             Name="lsBipChecker"
             Grid.Row="1"
             Grid.Column="1"
             Margin="10"
+            AlternatingRowBackground="Transparent"
+            AlternationCount="2"
+            AutoGenerateColumns="False"
             GridViewColumnHeader.Click="GridViewColumnHeaderClickedHandler"
             ItemsSource="{Binding Data}"
             ScrollViewer.HorizontalScrollBarVisibility="Visible"
             ScrollViewer.VerticalScrollBarVisibility="Visible">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn
-                        Width="100"
-                        DisplayMemberBinding="{Binding ParameterName}"
-                        Header="ParameterName" />
-                    <GridViewColumn
-                        Width="100"
-                        DisplayMemberBinding="{Binding Id}"
-                        Header="Parameter Id" />
-                    <GridViewColumn
-                        Width="100"
-                        DisplayMemberBinding="{Binding TypeOrInstance}"
-                        Header="Is Instance" />
-                    <GridViewColumn
-                        Width="150"
-                        DisplayMemberBinding="{Binding BuiltInParameter}"
-                        Header="BuiltInParameter" />
-                    <GridViewColumn
-                        Width="150"
-                        DisplayMemberBinding="{Binding ParameterType}"
-                        Header="ParameterType" />
-                    <GridViewColumn
-                        Width="100"
-                        DisplayMemberBinding="{Binding Type}"
-                        Header="Type" />
-                    <GridViewColumn
-                        Width="100"
-                        DisplayMemberBinding="{Binding ReadWrite}"
-                        Header="Read/Write" />
-                    <GridViewColumn
-                        Width="50"
-                        DisplayMemberBinding="{Binding Value}"
-                        Header="Value" />
-                    <GridViewColumn
-                        Width="150"
-                        DisplayMemberBinding="{Binding StringValue}"
-                        Header="String Value" />
-                    <GridViewColumn
-                        Width="150"
-                        DisplayMemberBinding="{Binding ParameterGroup}"
-                        Header="Parameter Group" />
-                    <GridViewColumn
-                        Width="150"
-                        DisplayMemberBinding="{Binding GroupName}"
-                        Header="Group Name" />
-                    <GridViewColumn
-                        Width="150"
-                        DisplayMemberBinding="{Binding Shared}"
-                        Header="Shared" />
-                    <GridViewColumn
-                        Width="150"
-                        DisplayMemberBinding="{Binding GUID}"
-                        Header="GUID" />
-                    <GridViewColumn
-                        Width="200"
-                        DisplayMemberBinding="{Binding AssGlobalPara}"
-                        Header="Global Parameter Associated  " />
-                    <GridViewColumn
-                        Width="200"
-                        DisplayMemberBinding="{Binding AssGlobalParaValue}"
-                        Header="Associated Global Parameter Value " />
-                </GridView>
-            </ListView.View>
-            <ListView.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header = "Name" Binding = "{Binding ParameterName}" /> 
+                <DataGridTextColumn Header = "Id" Binding = "{Binding Id}" /> 
+                <DataGridTextColumn Header = "TypeOrInstance" Binding = "{Binding TypeOrInstance}" /> 
+                <DataGridTextColumn Header = "BuiltInParameter" Binding = "{Binding BuiltInParameter}" /> 
+                <DataGridTextColumn Header = "ParameterType" Binding = "{Binding ParameterType}" /> 
+                <DataGridTextColumn Header = "Type" Binding = "{Binding Type}" /> 
+                <DataGridTextColumn Header = "ReadWrite" Binding = "{Binding ReadWrite}" /> 
+                <DataGridTextColumn Header = "Value" Binding = "{Binding Value}" /> 
+                <DataGridTextColumn Header = "StringValue" Binding = "{Binding StringValue}" /> 
+                <DataGridTextColumn Header = "ParameterGroup" Binding = "{Binding ParameterGroup}" /> 
+                <DataGridTextColumn Header = "GroupName" Binding = "{Binding GroupName}" /> 
+                <DataGridTextColumn Header = "Shared" Binding = "{Binding Shared}" /> 
+                <DataGridTextColumn Header = "GUID" Binding = "{Binding GUID}" />  
+                <DataGridTextColumn Header = "AssGlobalPara" Binding = "{Binding AssGlobalPara}" />  
+                <DataGridTextColumn Header = "AssGlobalParaValue" Binding = "{Binding AssGlobalParaValue}" />  
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Command="{Binding CopyParameterName}" Header="Copy ParameterName" />
                     <MenuItem Command="{Binding CopyBuiltInParameter}" Header="Copy BuiltInParameter" />
@@ -295,9 +251,9 @@
                     <MenuItem Command="{Binding CopyGroupName}" Header="Copy GroupName" />
                     <MenuItem Command="{Binding CopyGUID}" Header="Copy GUID" />
                 </ContextMenu>
-            </ListView.ContextMenu>
+            </DataGrid.ContextMenu>
 
-        </ListView>-->
+        </DataGrid>
         <TextBox
             x:Name="tbxSeach"
             Grid.Row="0"
