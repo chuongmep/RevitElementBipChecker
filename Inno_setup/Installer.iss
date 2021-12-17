@@ -3,7 +3,7 @@
 
 #define AppId "B83C55F1-7C4E-4DDD-B609-17FBEA21A137"
 #define AppName "RevitBipChecker"
-#define AppVersion "1.0.8"
+#define AppVersion "1.0.9"
 #define AppPublisher "ChuongHo"
 #define AppURL "http://chuongmep.com/"
 #define AppComments "Revit Bip Element Checker"

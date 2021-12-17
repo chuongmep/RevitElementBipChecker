@@ -57,7 +57,6 @@ git clone https://github.com/chuongmep/RevitElementBipChecker.git
 ```
 #### Restore nuget : 
 
-1 [https://github.com/chuongmep/RevitAPI-Nuget](https://github.com/chuongmep/RevitAPI-Nuget)
 
 2.[https://github.com/JamesNK/Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)
 
