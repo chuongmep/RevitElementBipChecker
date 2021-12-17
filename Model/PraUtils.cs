@@ -75,8 +75,13 @@ namespace RevitElementBipChecker.Model
         /// <returns></returns>
         public static string GetParameterType(this Autodesk.Revit.DB.Parameter parameter)
         {
+#if REVIT_2021
             ParameterType pt = parameter.Definition.ParameterType; // returns 'Invalid' for 'ElementId'
             string s = ParameterType.Invalid == pt ? "" : "/" + pt;
+#else
+            ForgeTypeId pt = parameter.Definition.GetDataType();
+            string s = "/" + pt.TypeId.ToString();
+#endif
             return parameter.StorageType + s;
         }
 

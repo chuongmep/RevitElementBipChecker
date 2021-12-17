@@ -36,10 +36,27 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'REVIT2021|AnyCPU'">
+    <OutputPath>bin\REVIT2021\</OutputPath>
+    <DefineConstants>REVIT_2021</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'REVIT2022|AnyCPU'">
+    <OutputPath>bin\REVIT2022\</OutputPath>
+    <DefineConstants>REVIT_2022</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'REVIT2019|AnyCPU'">
+    <OutputPath>bin\REVIT2019\</OutputPath>
+    <DefineConstants>REVIT_2019</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'REVIT2018|AnyCPU'">
+    <OutputPath>bin\REVIT2018\</OutputPath>
+    <DefineConstants>REVIT_2018</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'REVIT2020|AnyCPU'">
+    <OutputPath>bin\REVIT2020\</OutputPath>
+    <DefineConstants>REVIT_2020</DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AdWindows, Version=3.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Chuongmep.RevitAPI.1.0.1\lib\net48\AdWindows.dll</HintPath>
-    </Reference>
     <Reference Include="FilterDataGrid, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\WPF\DataGridFilter\FilterDataGrid\bin\Debug\FilterDataGrid.dll</HintPath>
@@ -49,23 +66,13 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="RevitAddInUtility, Version=21.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Chuongmep.RevitAPI.1.0.1\lib\net48\RevitAddInUtility.dll</HintPath>
-    </Reference>
     <Reference Include="RevitAPI, Version=21.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>packages\Chuongmep.RevitAPI.1.0.1\lib\net48\RevitAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="RevitAPIIFC, Version=21.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>packages\Chuongmep.RevitAPI.1.0.1\lib\net48\RevitAPIIFC.dll</HintPath>
-    </Reference>
-    <Reference Include="RevitAPIMacros, Version=21.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>packages\Chuongmep.RevitAPI.1.0.1\lib\net48\RevitAPIMacros.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Autodesk\Revit 2022\RevitAPI.dll</HintPath>
     </Reference>
     <Reference Include="RevitAPIUI, Version=21.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>packages\Chuongmep.RevitAPI.1.0.1\lib\net48\RevitAPIUI.dll</HintPath>
-    </Reference>
-    <Reference Include="RevitAPIUIMacros, Version=21.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>packages\Chuongmep.RevitAPI.1.0.1\lib\net48\RevitAPIUIMacros.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Autodesk\Revit 2022\RevitAPIUI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -76,9 +83,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="UIFramework, Version=21.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>packages\Chuongmep.RevitAPI.1.0.1\lib\net48\UIFramework.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>

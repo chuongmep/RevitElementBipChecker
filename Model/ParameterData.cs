@@ -11,7 +11,7 @@ namespace RevitElementBipChecker.Model
             this.ParameterName = parameter.Definition.Name;
             this.Id = parameter.Id.ToString();
             this.ParameterGroup = parameter.Definition.ParameterGroup.ToString();
-            this.ParameterType = parameter.Definition.ParameterType.ToString();
+            this.ParameterType = parameter.GetParameterType();
             this.GroupName = LabelUtils.GetLabelFor(parameter.Definition.ParameterGroup);
             this.Type = parameter.GetParameterType();
             this.ReadWrite = parameter.IsReadWrite();
