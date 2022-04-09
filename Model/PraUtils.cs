@@ -75,7 +75,7 @@ namespace RevitElementBipChecker.Model
         /// <returns></returns>
         public static string GetParameterType(this Autodesk.Revit.DB.Parameter parameter)
         {
-#if REVIT_2018 || REVIT_2019 || REVIT_2020 || REVIT_2021
+#if R18 || R19 || R20 || R21
             ParameterType pt = parameter.Definition.ParameterType; // returns 'Invalid' for 'ElementId'
             string s = ParameterType.Invalid == pt ? "" : "/" + pt;
 #else
